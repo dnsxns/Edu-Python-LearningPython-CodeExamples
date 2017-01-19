@@ -1,4 +1,5 @@
 import re
+import sys
 
 # --- Strings
 s = 'Hello, World!'
@@ -12,6 +13,23 @@ print(msg)
 
 str1 = "Hello, Python world"
 print(re.match('Hello,[ \t]*(.*)world', str1).group(1))
+print(str1[::-1]) # Reverse
+
+reply = """
+Greetings...
+Hello %(name)s!
+Your age squared is %(age)s
+"""
+values = {'name': 'Bob', 'age': 40}
+print(reply % values)
+
+template1 = '{0}, {1} and {2}'
+print(template1.format('spam', 'ham', 'eggs'))
+
+template2 = '{motto}, {pork} and {food}'
+print(template2.format(motto='spam', pork='ham', food='eggs'))
+
+print('My {config[spam]} runs {sys.platform}'.format(sys=sys, config={'spam': 'laptop'}))
 
 # --- Lists
 simple_list = ['aa', 'bb', 'cc']
